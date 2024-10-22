@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netmill - Client Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://via.placeholder.com/1200x800'); /* Simple background image */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: rgba(204, 255, 204, 0.9); /* Slight transparency for form background */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #006600;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: #66b266;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+        }
+
+        h2 {
+            color: #006600;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #66b266;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #66b266;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #559955;
+        }
+
+        .animate {
+            animation: bounce 1s ease;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container" id="formContainer">
+        <div class="logo"></div>
+        <h1>Netmill</h1>
+        <h2>Client Form</h2>
+        <form id="clientForm">
+            <input type="text" id="name" name="name" placeholder="Your Name" required><br>
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone" required><br>
+            <input type="email" id="email" name="email" placeholder="Your Email" required><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('clientForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Добавляем анимацию формы при отправке
+            var formContainer = document.getElementById('formContainer');
+            formContainer.classList.add('animate');
+            
+            // Убираем анимацию после её завершения
+            setTimeout(function() {
+                formContainer.classList.remove('animate');
+            }, 1000);
+            
+            // Здесь можно добавить логику для отправки формы на сервер
+            alert('Form submitted!');
+        });
+    </script>
+</body>
+</html>
